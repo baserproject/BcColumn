@@ -17,4 +17,4 @@ use BaserCore\BcPlugin;
 /**
  * plugin for BcColumn
  */
-class Plugin extends BcPlugin {}
+class BcColumnPlugin extends BcPlugin {}
