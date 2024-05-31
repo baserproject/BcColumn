@@ -2,9 +2,6 @@
 /**
  * デフォルトレイアウト
  */
-$request = $this->getRequest();
-$attributes = $request->getAttributes();
-$base = $attributes['base'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +13,7 @@ $base = $attributes['base'];
 		<?php $this->BcBaser->metaKeywords() ?>
 		<?php $this->BcBaser->icon() ?>
 		<?php $this->BcBaser->rss('ニュースリリース RSS 2.0', '/news/index.rss') ?>
-
+		
 <!--[if lt IE 9]>
 	<script src="js/IE9.js"></script>
 	<script src="js/html5shiv-printshiv.js"></script>
@@ -30,7 +27,6 @@ $base = $attributes['base'];
 <?php endif ?>
 		<?php $this->BcBaser->css('responsive') ?>
 
-<?= $this->BcBaser->declarationI18n() ?>
 <?php $this->BcBaser->js(array(
 			'jquery-1.7.2.min',
 			'jquery.bxSlider.min',
@@ -38,17 +34,12 @@ $base = $attributes['base'];
 			'baser.min',
 			'startup'
 )) ?>
-<?php $this->BcBaser->js('common.bundle', true, [
-  'id' => 'AdminScript',
-  'data-baseUrl' => h($base),
-  'data-baserCorePrefix' => \Cake\Utility\Inflector::underscore(\BaserCore\Utility\BcUtil::getBaserCorePrefix()),
-]) ?>
 <?php $this->BcBaser->scripts() ?>
 <?php $this->BcBaser->googleAnalytics() ?>
 </head>
 
 <body id="<?php $this->BcBaser->contentsName(true) ?>">
-<div id="Wrapper">
+<div id="Wrapper">	
 <?php $this->BcBaser->header() ?>
 
 	<?php if ($this->BcBaser->isHome()): ?>
@@ -61,10 +52,10 @@ $base = $attributes['base'];
         <?php $this->BcBaser->mainImage(array('all' => false, 'num' => 5)) ?>
     </div>
 	<?php else: ?>
-
+	
 	<div id="PageTitle">
 	    <div class="body-wrap">
-	    <?php if ($this->BcBaser->isBlog()): ?>
+	    <?php if (!empty($this->Blog)): ?>
 	        <h1><?php echo h($this->Blog->getTitle()) ?></h1>
     	<?php else: ?>
 	        <h1><?php $this->BcBaser->contentsTitle() ?></h1>
@@ -102,7 +93,7 @@ $base = $attributes['base'];
 		</div>
 		<?php endif ?>
 	</div>
-
+	
 	<div id="TopLink"><?php $this->BcBaser->img('footer/btn_pagetop.png', array('alt' => 'PAGE TOP')) ?></div>
 
 <?php $this->BcBaser->footer() ?>
