@@ -1,6 +1,6 @@
 {
     "name": "baserproject/bc-column",
-    "description": "theme for baserCMS",
+    "description": "BcContentLink plugin for baserCMS",
     "homepage": "https://basercms.net",
     "type": "cakephp-plugin",
     "license": "MIT",
