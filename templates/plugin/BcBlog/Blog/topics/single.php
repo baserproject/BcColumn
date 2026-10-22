@@ -3,7 +3,6 @@
  * ブログ詳細ページ
  */
 $this->BcBaser->setDescription($this->Blog->getTitle() . '｜' . $this->Blog->getPostContent($post, false, false, 50));
-$this->BcBaser->setTitle($post->title);
 ?>
 
 
